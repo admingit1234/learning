@@ -14,28 +14,49 @@
 				<version>2.0.1</version>
 			</plugin>
 			<plugin>
-        <groupId>org.jboss.as.plugins</groupId>
-        <artifactId>jboss-as-maven-plugin</artifactId>
-        <version>7.1.1.Final</version>
-        <configuration>
-            <hostname>${deploy.jboss.host}</hostname>
-            <port>${deploy.jboss.port}</port>
-            <username>${deploy.jboss.user}</username>
-            <password>${deploy.jboss.password}</password>
-            <name>${backend.deployment-name}</name>
-            <filename>${project.build.finalName}.war</filename>
-            <skip>${skipDeployment}</skip>
-        </configuration>
-        <executions>
-            <execution>
-                <id>deploy-jar</id>
-                <phase>install</phase>
-                <goals>
-                    <goal>deploy</goal>
-                </goals>
-            </execution>
-        </executions>
-    </plugin>
+				<groupId>org.jboss.as.plugins</groupId>
+				<artifactId>jboss-as-maven-plugin</artifactId>
+				<version>7.1.1.Final</version>
+				<configuration>
+					<hostname>${deploy.jboss.host}</hostname>
+					<port>${deploy.jboss.port}</port>
+					<username>${deploy.jboss.user}</username>
+					<password>${deploy.jboss.password}</password>
+					<name>${backend.deployment-name}</name>
+					<filename>${project.build.finalName}.war</filename>
+					<skip>${skipDeployment}</skip>
+				</configuration>
+				<executions>
+					<execution>
+						<id>deploy-jar</id>
+						<phase>install</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<version>1.1.0.Alpha10</version>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>redeploy</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<force>true</force>
+					<hostname>${hostname}</hostname>
+					<port>${port}</port>
+					<username>${username}</username>
+					<password>${password}</password>
+					<filename>${filename}</filename>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
