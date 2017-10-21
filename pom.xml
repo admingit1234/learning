@@ -9,12 +9,12 @@
 	<description></description>
 	<build>
 		<plugins>
-			<!-- <plugin>
+			 <plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.0.1</version>
 			</plugin>
-			 -->
-			<plugin>
+			
+			<!-- <plugin>
 				<groupId>org.wildfly.plugins</groupId>
 				<artifactId>wildfly-maven-plugin</artifactId>
 				<version>1.1.0.Alpha10</version>
@@ -34,7 +34,7 @@
 					<password>${password}</password>
 					<filename>${filename}</filename>
 				</configuration>
-			</plugin>
+			</plugin> -->
 		</plugins>
 	</build>
 	<dependencies>
